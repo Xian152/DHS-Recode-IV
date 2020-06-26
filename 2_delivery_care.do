@@ -46,7 +46,7 @@ order *,sequential  //make sure variables are in order.
 	
 	replace c_earlybreast = 0 if m4 != .    //  based on Last born children who were ever breastfed
 	replace c_earlybreast = 1 if inlist(m34,0,100)
-	replace c_earlybreast = . if inlist(m34,199,299)
+	replace c_earlybreast = . if inlist(m34,199,299,999)
 	
     *c_skin2skin: child placed on mother's bare skin immediately after birth of births in last 2 years
 	capture confirm variable m77
