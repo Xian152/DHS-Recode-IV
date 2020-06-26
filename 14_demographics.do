@@ -11,7 +11,7 @@
 	
 *hm_age_yrs	Age in years       
     clonevar hm_age_yrs = hv105
-	replace hm_age_yrs = . if inlist(hv105,98)
+	replace hm_age_yrs = . if inlist(hv105,98,99)
 	
 *hm_age_mon	Age in months (children only)
 	clonevar hm_age_mon = hc1
