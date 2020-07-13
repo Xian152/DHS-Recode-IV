@@ -7,7 +7,7 @@
     gen hm_live = 1          
    
 *hm_male Male (1/0)         
-    recode hv104 (2 = 0),gen(hm_male)  
+    recode hv104 (2 = 0) (9=.),gen(hm_male)  
 	
 *hm_age_yrs	Age in years       
     clonevar hm_age_yrs = hv105
@@ -18,9 +18,10 @@
 
 *hm_headrel	Relationship with HH head
 	clonevar hm_headrel = hv101
+	replace hm_headrel = . if inlist(hm_headrel,98,99) 
 	
 *hm_stay Stayed in the HH the night before the survey (1/0)
-    gen hm_stay = .  //vary by survey, afg is missing.
+    gen hm_stay = hv103 if hv103!= 9 //vary by survey, afg is missing.
 	
 *hm_dob	date of birth (cmc)
     clonevar hm_dob = hc32  
